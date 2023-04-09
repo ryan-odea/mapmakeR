@@ -1,0 +1,16 @@
+Package: mapmakeR
+Type: Package
+Title: Easy Beautiful Maps
+Version: 0.1.0
+Author: Ryan O'Dea
+Maintainer: The package maintainer <ryanodea@bu.edu>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    ggplot2,
+    osmdata,
+    sf
+RoxygenNote: 7.2.3
