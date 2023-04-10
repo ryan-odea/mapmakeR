@@ -7,9 +7,9 @@
 #' @param bounding_adj Bounding Box Adjustment
 #' @param text_size Text sizing for final plot output
 #'
-#' @import osmdata
-#' @import sf
-#' @import ggplot2
+#' @importFrom osmdata getbb opq add_osm_feature osmdata_sf
+#' @importFrom sf geom_sf coord_sf
+#' @importFrom ggplot2 ggplot theme_void theme labs
 #' 
 #' @export
 street_map <- function(location,
