@@ -7,10 +7,11 @@
 #' @param bounding_adj Bounding Box Adjustment
 #' @param text_size Text sizing for final plot output
 #'
-#' @export
+#' @import osmdata
+#' @import sf
 
 street_map <- function(location,
-                       color = map_palettes["Daylight"],
+                       color = map_palette("Daylight"),
                        size = c(river = 1.2,
                                  railway = 0.5,
                                  highway = .7,
