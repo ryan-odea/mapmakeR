@@ -11,6 +11,7 @@
 #' @import sf
 #' 
 #' @export
+
 street_map <- function(location,
                        color = map_palette("Daylight"),
                        size = c(river = 1.2,
