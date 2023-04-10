@@ -10,7 +10,6 @@
 #' @import(osmdata)
 #' @import(sf)
 #' @import(ggplot2)
-#' 
 #' @export
 
 street_map <- function(location,
@@ -38,42 +37,42 @@ street_map <- function(location,
   disp_lat = round(mean(bounding_box[2, 1], bounding_box[2, 2]), 3)
   disp_long = round(mean(bounding_box[1, 1], bounding_box[1, 2]), 3)
 
-  highways = bounding_box %>%
-    opq() %>%
+  highways = bounding_box |>
+    opq() |>
     add_osm_feature(key = "highway",
                     value = c("motorway",
                               "primary",
                               "motorway_link",
-                              "primary_link")) %>%
+                              "primary_link")) |>
     osmdata_sf()
 
-  main_streets = bounding_box %>%
-    opq() %>%
+  main_streets = bounding_box |>
+    opq() |>
     add_osm_feature(key = "highway",
                     value = c("secondary",
                               "tertiary",
                               "seconday_link",
-                              "tertiary_link")) %>%
+                              "tertiary_link")) |>
     osmdata_sf()
 
-  small_streets = bounding_box %>%
-    opq() %>%
+  small_streets = bounding_box |>
+    opq() |>
     add_osm_feature(key = "highway",
                     value = c("residential",
                               "living_street",
                               "unclassified",
                               "service",
-                              "footway")) %>%
+                              "footway")) |>
     osmdata_sf()
 
-  rivers = bounding_box %>%
-    opq() %>%
-    add_osm_feature(key = "waterway", value = "river") %>%
+  rivers = bounding_box |>
+    opq() |>
+    add_osm_feature(key = "waterway", value = "river") |>
     osmdata_sf()
 
-  railway = bounding_box %>%
-    opq() %>%
-    add_osm_feature(key = "railway", value = "rail") %>%
+  railway = bounding_box |>
+    opq() |>
+    add_osm_feature(key = "railway", value = "rail") |>
     osmdata_sf()
 
   g = ggplot() +
