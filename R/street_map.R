@@ -9,6 +9,7 @@
 #'
 #' @import(osmdata)
 #' @import(sf)
+#' @import(ggplot2)
 #' 
 #' @export
 
