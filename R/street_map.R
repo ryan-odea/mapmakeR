@@ -34,7 +34,7 @@ street_map <- function(location,
                        text_size = c(title = 20,
                                      subtitle = 10)){
 
-  bounding_box = getbb(location)
+  bounding_box = osmdata::getbb(location)
   disp_lat = round(mean(bounding_box[2, 1], bounding_box[2, 2]), 3)
   disp_long = round(mean(bounding_box[1, 1], bounding_box[1, 2]), 3)
 
