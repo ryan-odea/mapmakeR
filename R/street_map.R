@@ -7,8 +7,8 @@
 #' @param bounding_adj Bounding Box Adjustment
 #' @param text_size Text sizing for final plot output
 #'
-#' @import osmdata
-#' @import sf
+#' @import(osmdata)
+#' @import(sf)
 #' 
 #' @export
 
