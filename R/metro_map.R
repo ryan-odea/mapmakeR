@@ -1,4 +1,4 @@
-#' Create a location based street map
+#' Create a location based street map with the addition of metro lines
 #'
 #' @param location The name of the place you want to map via OSM query
 #' @param colors Named list for line colors
@@ -9,36 +9,36 @@
 #'
 #' @importFrom osmdata getbb opq add_osm_feature osmdata_sf
 #' @importFrom ggplot2 ggplot theme_void theme labs coord_sf geom_sf element_text margin element_rect
-#'
+#' 
 #' @export
 
-street_map <- function(location,
-                       color = map_palette("Daylight"),
-                       size = c(river = 1.2,
-                                 railway = 0.5,
-                                 highway = .7,
-                                 main_street = .5,
-                                 small_street = .1),
-                       linetype = c(river = "solid",
-                                     railway = "dotdash",
-                                     highway = "solid",
-                                     main_street = "solid",
-                                     small_street = "solid"),
-                       transparency = c(river = 1,
-                                        railway = 1,
-                                        highway = 1,
-                                        main_street = 1,
-                                        small_street = 1),
-                       text_color = c(title = "white",
-                                      subtitle = "white"),
-                       bounding_adj = 0.002,
-                       text_size = c(title = 20,
-                                     subtitle = 10)){
-
+metro_map <- function(location,
+                      colors = map_palettes("Nightlight"),
+                      sizes = c(river = 1.2,
+                                railway = 0.5,
+                                highways = .7,
+                                main_streets = .5,
+                                small_streets = .1,
+                                metro = 1),
+                      linetypes = c(river = "solid",
+                                    railway = "dotdash",
+                                    highways = "solid",
+                                    main_streets = "solid",
+                                    small_streets = "solid",
+                                    metro = "solid"),
+                      transparency = c(river = 0.7,
+                                       railway = 0.6,
+                                       highways = 0.8,
+                                       main_streets = 0.6,
+                                       small_streets = 0.4,
+                                       metro = 1),
+                      text_color = c(title = "white",
+                                     subtitle = "white"),
+                      bounding_adj = 0.002,
+                      text_size = c(title = 20,
+                                    subtitle = 10)){
   bounding_box = getbb(location)
-  disp_lat = round(mean(bounding_box[2, 1], bounding_box[2, 2]), 3)
-  disp_long = round(mean(bounding_box[1, 1], bounding_box[1, 2]), 3)
-
+  
   highways = bounding_box %>%
     opq() %>%
     add_osm_feature(key = "highway",
@@ -47,7 +47,7 @@ street_map <- function(location,
                               "motorway_link",
                               "primary_link")) %>%
     osmdata_sf()
-
+  
   main_streets = bounding_box %>%
     opq() %>%
     add_osm_feature(key = "highway",
@@ -56,7 +56,7 @@ street_map <- function(location,
                               "seconday_link",
                               "tertiary_link")) %>%
     osmdata_sf()
-
+  
   small_streets = bounding_box %>%
     opq() %>%
     add_osm_feature(key = "highway",
@@ -66,54 +66,66 @@ street_map <- function(location,
                               "service",
                               "footway")) %>%
     osmdata_sf()
-
+  
   rivers = bounding_box %>%
     opq() %>%
     add_osm_feature(key = "waterway", value = "river") %>%
     osmdata_sf()
-
+  
   railway = bounding_box %>%
     opq() %>%
     add_osm_feature(key = "railway", value = "rail") %>%
     osmdata_sf()
-
+  
+  metro = bounding_box %>% 
+    opq() %>% 
+    add_osm_feature(key = "railway", value = c("subway",
+                                               "light_rail")) %>%
+    osmdata_sf()
+  
   g = ggplot() +
     geom_sf(data = rivers$osm_lines,
             inherit.aes = FALSE,
-            color = color["river"],
-            linetype = linetype["river"],
-            linewidth = size["river"],
+            color = colors["river"],
+            linetype = linetypes["river"],
+            linewidth = sizes["river"],
             alpha = transparency["river"]) +
     geom_sf(data = railway$osm_lines,
             inherit.aes = FALSE,
-            color = color["railway"],
-            linetype = linetype["railway"],
-            linewidth = size["railway"],
+            color = colors["railway"],
+            linetype = linetypes["railway"],
+            linewidth = sizes["railway"],
             alpha = transparency["railway"]) +
     geom_sf(data = small_streets$osm_lines,
             inherit.aes = FALSE,
-            color = color["small_street"],
-            linetype = linetype["small_street"],
-            linewidth = size["small_street"],
-            alpha = transparency["small_street"]) +
+            color = colors["small_streets"],
+            linetype = linetypes["small_streets"],
+            linewidth = sizes["small_streets"],
+            alpha = transparency["small_streets"]) +
     geom_sf(data = main_streets$osm_lines,
             inherit.aes = FALSE,
-            color = color["main_street"],
-            linetype = linetype["main_street"],
-            linewidth = size["main_street"],
-            alpha = transparency["main_street"]) +
+            color = colors["main_streets"],
+            linetype = linetypes["main_streets"],
+            linewidth = sizes["main_streets"],
+            alpha = transparency["main_streets"]) +
     geom_sf(data = highways$osm_lines,
             inherit.aes = FALSE,
-            color = color["highway"],
-            linetype = linetype["highway"],
-            linewidth = size["highway"],
-            alpha = transparency["hi"]) +
+            color = colors["highways"],
+            linetype = linetypes["highways"],
+            linewidth = sizes["highways"],
+            alpha = transparency["highways"]) +
+    geom_sf(data = metro$osm_lines,
+            inherit.aes = FALSE,
+            linetype = linetypes["metro"]
+            color = colors["metro"],
+            linewidth = sizes["metro"],
+            alpha = transparency["metro"]) +
     coord_sf(xlim = c(bounding_box[1, 1] - bounding_adj, bounding_box[1, 2] + bounding_adj),
              ylim = c(bounding_box[2, 1] - bounding_adj, bounding_box[2, 2] + bounding_adj)) +
     theme_void() +
     theme(plot.title = element_text(size = text_size["title"], face = "bold", hjust = 0.5, color = text_color["title"]),
           plot.subtitle = element_text(size = text_size["subtitle"], hjust = 0.5, margin = margin(2, 0, 5, 0), color = text_color["subtitle"]),
-          plot.background = element_rect(fill = color["background"], color = color["background"])) +
+          plot.background = element_rect(fill = colors["background"], color = colors["background"])) +
     labs(title = sub(" .*", "", location),
          subtitle = paste0(ifelse(disp_lat < 0,
                                   paste0(-1*disp_lat, "° S /"),

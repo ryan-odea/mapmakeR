@@ -2,7 +2,8 @@
 #'
 #' @export
 map_palettes <- list(
-  Daylight = c(river = "steelblue", railway = "black", highway = "black", main_street = "black", small_street = "darkgray", background = "white")
+  Daylight = c(river = "steelblue", railway = "black", highway = "black", main_street = "black", small_street = "darkgray", background = "white", metro = "orange"),
+  Nightlight = c(river = "steelblue",railway = "white", highways = "white",main_streets = "white", small_streets = "white", background = "#333333", metro = "orange")
 )
 
 #' @importFrom graphics rect par image text
