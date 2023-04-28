@@ -10,7 +10,7 @@
 #' @importFrom dplyr mutate filter
 #' @importFrom sf st_read st_crs st_transform st_intersection st_buffer st_sfc st_point
 #' @importFrom lubridate yday
-#' @importFrom grid grid.polygon
+#' @importFrom grid grid.polygon polygonGrob
 #'
 #' @export
 
