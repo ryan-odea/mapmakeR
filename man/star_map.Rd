@@ -9,7 +9,7 @@ star_map(location, date, location_caption, color)
 \arguments{
 \item{location}{The name of the place you want to map via OSM query}
 
-\item{date}{String format date of the time you would like the starmap}
+\item{date}{String format date (%m/%d/%Y) of the time you would like the starmap}
 
 \item{location_caption}{String placed for the location on the output plot}
 

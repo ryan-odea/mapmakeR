@@ -1,15 +1,16 @@
 #' Create a location based map of the stars
 #'
 #' @param location The name of the place you want to map via OSM query
-#' @param date String format date of the time you would like the starmap
+#' @param date String format date (%m/%d/%Y) of the time you would like the starmap
 #' @param location_caption String placed for the location on the output plot
 #' @param color Named list of colors for the star map
 #'
 #' @importFrom osmdata getbb
 #' @importFrom ggplot2 ggplot theme_void theme labs geom_sf element_text margin element_rect element_line annotation_custom
 #' @importFrom dplyr mutate filter
-#' @importFrom sf st_read st_crs st_transform  st_intersection st_buffer st_sfc st_point
+#' @importFrom sf st_read st_crs st_transform st_intersection st_buffer st_sfc st_point
 #' @importFrom lubridate yday
+#' @importFrom grid grid.polygon
 #'
 #' @export
 
