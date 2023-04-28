@@ -12,6 +12,7 @@ LazyData: true
 Imports: 
     ggplot2,
     magrittr,
-    osmdata,
+    osmdata
+Depends:
     sf
 RoxygenNote: 7.2.3
