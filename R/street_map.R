@@ -8,8 +8,6 @@
 #' @param text_size Text sizing for final plot output
 #'
 #' @importFrom osmdata getbb opq add_osm_feature osmdata_sf
-#' @importFrom ggplot2 ggplot theme_void theme labs coord_sf geom_sf element_text margin element_rect
-#'
 #' @export
 
 street_map <- function(location,
