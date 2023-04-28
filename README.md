@@ -1,6 +1,6 @@
 # mapmakeR
 Prebuilt beautiful maps of various types
-(./man/figures/starmap.jpg)
+![](./man/figures/starmap.jpg)
 
 ## Installation
 This package can be installed off of github via
