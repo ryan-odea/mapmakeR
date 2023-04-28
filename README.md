@@ -1,10 +1,10 @@
 # mapmakeR
 Prebuilt beautiful maps of various types
 <p float="left" align="middle">
-  <img src="https://github.com/ryan-odea/mapmakeR/blob/master/man/figures/starmap.jpg" width=30% height=30%>
-  <img src="https://github.com/ryan-odea/mapmakeR/blob/master/man/figures/streetmap.jpg" width=30% height=30%>
+  <img src="https://github.com/ryan-odea/mapmakeR/blob/master/man/figures/starmap.jpg" width=200 height=600>
+  <img src="https://github.com/ryan-odea/mapmakeR/blob/master/man/figures/streetmap.jpg" width=200 height=600>
   <img src="https://github.com/ryan-odea/mapmakeR/blob/master/man/figures/topographic.jpg"
-    width=30% height=30%>
+  width=200 height=600>
 </p>
 
 ## Installation
