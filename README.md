@@ -3,7 +3,8 @@ Prebuilt beautiful maps of various types
 
 ## Installation
 This package can be installed off of github via
-  ```if(!require(devtools) install.package(devtools)
+  ```r
+  if(!require(devtools) install.package(devtools)
   devtools::install_github("ryan-odea/mapmakeR")
   ```
 
