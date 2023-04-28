@@ -66,7 +66,7 @@ star_map <- function(location, date, location_caption, color){
     scale_y_continuous(breaks = seq(0, 90, 15)) +
     scale_size_continuous(range = c(0, 2)) +
     annotation_custom(mask) +
-    labs(caption = paste0(location_cap,
+    labs(caption = paste0(location_caption,
                           "\n", date_string,
                           "\n", round((coords[2,1] + coords[2,2])/2, 2), "° N",
                           ", ", ifelse(coords[1,1] < 0,
