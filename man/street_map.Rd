@@ -13,6 +13,7 @@ street_map(
     "solid", small_street = "solid"),
   transparency = c(river = 1, railway = 1, highway = 1, main_street = 1, small_street =
     1),
+  text_color = c(title = "white", subtitle = "white"),
   bounding_adj = 0.002,
   text_size = c(title = 20, subtitle = 10)
 )
@@ -20,15 +21,15 @@ street_map(
 \arguments{
 \item{location}{The name of the place you want to map via OSM query}
 
+\item{color}{Named list for line colors}
+
+\item{size}{Named list for line sizes}
+
+\item{linetype}{Named list for line linetypes}
+
 \item{bounding_adj}{Bounding Box Adjustment}
 
 \item{text_size}{Text sizing for final plot output}
-
-\item{colors}{Named list for line colors}
-
-\item{sizes}{Named list for line sizes}
-
-\item{linetypes}{Named list for line linetypes}
 }
 \description{
 Create a location based street map

@@ -5,7 +5,7 @@
 \alias{map_palettes}
 \title{Complete list of pre-built color palettes}
 \format{
-An object of class \code{list} of length 1.
+An object of class \code{list} of length 2.
 }
 \usage{
 map_palettes

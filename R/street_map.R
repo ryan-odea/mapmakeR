@@ -1,9 +1,9 @@
 #' Create a location based street map
 #'
 #' @param location The name of the place you want to map via OSM query
-#' @param colors Named list for line colors
-#' @param sizes Named list for line sizes
-#' @param linetypes Named list for line linetypes
+#' @param color Named list for line colors
+#' @param size Named list for line sizes
+#' @param linetype Named list for line linetypes
 #' @param bounding_adj Bounding Box Adjustment
 #' @param text_size Text sizing for final plot output
 #'
