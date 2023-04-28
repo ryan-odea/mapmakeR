@@ -1,7 +1,7 @@
 # mapmakeR
 Prebuilt beautiful maps of various types
-<p>
-  <img src="https://github.com/ryan-odea/mapmakeR/blob/master/man/figures/starmap.jpg"  width="600" height="300" />
+<p align= "center">
+  <img src="https://github.com/ryan-odea/mapmakeR/blob/master/man/figures/starmap.jpg"  width="100" height="300" />
 </p>
 
 ## Installation
