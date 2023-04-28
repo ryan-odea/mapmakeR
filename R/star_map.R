@@ -9,6 +9,7 @@
 #' @importFrom ggplot2 ggplot theme_void theme labs geom_sf element_text margin element_rect element_line annotation_custom
 #' @importFrom dplyr mutate filter
 #' @importFrom sf st_read st_crs st_transform  st_intersection st_buffer
+#' @importFrom lubridate yday
 #'
 #' @export
 
