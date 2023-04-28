@@ -1,8 +1,17 @@
 # mapmakeR
 Prebuilt beautiful maps of various types
-<p align= "center">
-  <img src="https://github.com/ryan-odea/mapmakeR/blob/master/man/figures/starmap.jpg"  width="100" height="300" />
-</p>
+<div id="banner">
+  <div class="inline-block">
+    <img src="https://github.com/ryan-odea/mapmakeR/blob/master/man/figures/starmap.jpg" width=30% height=30%>
+  </div>
+  <div class="inline-block">
+    <img src="https://github.com/ryan-odea/mapmakeR/blob/master/man/figures/streetmap.jpg" width=30% height=30%>
+  </div>
+  <div class="inline-block">
+    <img src="https://github.com/ryan-odea/mapmakeR/blob/master/man/figures/topographic.jpg"
+    width=30% height=30%>
+  </div>
+</div>
 
 ## Installation
 This package can be installed off of github via
